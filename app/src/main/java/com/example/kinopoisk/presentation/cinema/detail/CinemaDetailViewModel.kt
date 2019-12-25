@@ -5,12 +5,14 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.kinopoisk.data.CinemaDatabase.Cinema
+import com.example.kinopoisk.data.CinemaDatabase.CinemaDao
 import com.example.kinopoisk.data.CinemaDatabase.CinemaRoomDatabase
 import com.example.kinopoisk.data.repository.CinemaRepositoryImpl
 import com.example.kinopoisk.domain.repository.CinemaRepository
 import kotlinx.coroutines.launch
 
-class CinemaDetailViewModel(application: Application) : AndroidViewModel(application) {
+class CinemaDetailViewModel(application: Application,private val cinemaDao: CinemaDao
+) : AndroidViewModel(application) {
 
     private val repository: CinemaRepository
 

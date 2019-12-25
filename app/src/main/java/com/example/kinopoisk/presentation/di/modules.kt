@@ -7,6 +7,7 @@ import com.example.kinopoisk.data.repository.MovieRepositoryImpl
 import com.example.kinopoisk.data.repository.UserRepositoryImpl
 import com.example.kinopoisk.domain.repository.MovieRepository
 import com.example.kinopoisk.domain.repository.UserRepository
+import com.example.kinopoisk.presentation.cinema.detail.CinemaDetailViewModel
 import com.example.kinopoisk.presentation.cinema.list.CinemaListViewModel
 import com.example.kinopoisk.presentation.login.LoginViewModel
 import com.example.kinopoisk.presentation.movie.favorites.FavoritesViewModel
@@ -78,6 +79,7 @@ val viewModelModule = module {
     viewModel { FavoritesViewModel(movieRepository = get()) }
     viewModel { ProfileViewModel(userRepository = get()) }
     viewModel { CinemaListViewModel(cinemaDao = get()) }
+    viewModel { CinemaDetailViewModel(cinemaDao = get(),application = androidApplication()) }
 }
 
 val appModule = listOf(networkModule, repositoryModule, viewModelModule, roomModule)

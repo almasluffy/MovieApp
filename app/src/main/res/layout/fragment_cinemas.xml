@@ -12,8 +12,10 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_dark"
+        android:background="@color/colorBlackG"
         app:tabGravity="fill"
+        app:tabTextColor="@color/Red"
+        app:tabIndicatorColor="@color/Red"
         app:tabMode="fixed" />
 
     <androidx.viewpager.widget.ViewPager

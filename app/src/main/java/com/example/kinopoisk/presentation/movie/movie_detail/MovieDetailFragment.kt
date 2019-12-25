@@ -110,9 +110,14 @@ class MovieDetailFragment : BaseFragment() {
                     Glide.with(this)
                         .load(imageUrl)
                         .into(ivBackdrop)
-                    tvName.text = result.movie.title
+                    if(result.movie.adult == true){
+                        tvName.text = result.movie.title + " (18+)"
+                    }
+                    else{
+                        tvName.text = result.movie.title
+                    }
                     tvRating.text = "${result.movie.voteAverage}/10"
-                    tvGenre.text = result.movie.genres?.first()?.name
+                    tvGenre.text = "Genre: " + result.movie.genres?.first()?.name
                     tvOverview.text = result.movie.overview
                 }
                 is MovieDetailViewModel.State.FavoriteMovie -> {

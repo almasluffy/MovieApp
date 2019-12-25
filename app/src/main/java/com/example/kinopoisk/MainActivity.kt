@@ -1,12 +1,10 @@
 package com.example.kinopoisk
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.example.kinopoisk.presentation.movie.favorites.FavoritesFragment
-import com.example.kinopoisk.presentation.profile.ProfileFragment
-import com.example.kinopoisk.presentation.movie.movie_list.MovieListFragment
-import androidx.fragment.app.FragmentTransaction
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
@@ -23,6 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val bar: ActionBar? = supportActionBar
+        bar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#0A0A0A")))
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         bottomNavigationView.setupWithNavController(navController)

@@ -46,7 +46,6 @@ class CinemaList : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //listViewModel = ViewModelProviders.of(this).get(CinemaListViewModel::class.java)
         bindViews(view)
         setAdapter()
         setData()

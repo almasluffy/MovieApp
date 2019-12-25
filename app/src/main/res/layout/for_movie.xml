@@ -10,26 +10,34 @@
     app:cardElevation="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="381dp"
+        android:layout_height="209dp">
 
         <ImageView
             android:id="@+id/ivPoster"
-            android:layout_width="182dp"
-            android:layout_height="184dp"
+            android:layout_width="172dp"
+            android:layout_height="249dp"
             android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="33dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            tools:layout_editor_absoluteX="27dp"
-            tools:layout_editor_absoluteY="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.123"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/tvDate"
-            android:layout_width="101dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="16dp"
-            android:textColor="#DF0A0A"
+            android:layout_width="91dp"
+            android:layout_height="29dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/abel"
+            android:textColor="@color/Blue"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -37,14 +45,29 @@
             tools:text="TextView" />
 
         <TextView
-            android:id="@+id/tvName"
-            android:layout_width="170dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
+            android:id="@+id/tvDescription"
+            android:layout_width="175dp"
+            android:layout_height="91dp"
+            android:fontFamily="@font/abel"
+            android:text="TextView"
             android:textColor="#DB1212"
-            android:textSize="24sp"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:layout_constraintVertical_bias="0.228" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="169dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/acme"
+            android:textAlignment="center"
+            android:textColor="@color/Yellow"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

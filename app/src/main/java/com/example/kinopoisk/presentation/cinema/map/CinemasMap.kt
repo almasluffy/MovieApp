@@ -33,13 +33,11 @@ class CinemasMap : BaseFragment(),
     GoogleMap.OnMarkerClickListener {
 
     private lateinit var map: GoogleMap
-
     private val viewModel: CinemaListViewModel by inject()
     private lateinit var navController: NavController
 
     companion object {
-        fun newInstance() : CinemasMap =
-            CinemasMap()
+        fun newInstance(): CinemasMap = CinemasMap()
     }
 
     override fun onCreateView(
@@ -51,7 +49,6 @@ class CinemasMap : BaseFragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        viewModel = ViewModelProviders.of(this).get(CinemaListViewModel::class.java)
         bindViews(view)
         setData()
     }
@@ -66,37 +63,33 @@ class CinemasMap : BaseFragment(),
     override fun setData() {
         viewModel.liveData.observe(viewLifecycleOwner, Observer { cinemaList ->
             cinemaList.map { cinema ->
-                val currentLatLng = cinema.latitude?.let { latitude ->
-                    cinema.longitude?.let { longitude ->
-                        LatLng(latitude, longitude)
-                    }
-                }
+                val currentLatLng = LatLng(cinema.latitude!!, cinema.longitude!!)
                 map.addMarker(
-                    currentLatLng?.let { latlng ->
-                        MarkerOptions()
-                            .position(latlng)
-                            .title(cinema.name)
-                    }
+                    MarkerOptions()
+                        .position(currentLatLng)
+                        .title(cinema.name)
+                        .alpha(cinema.id!!.toFloat())
                 )
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
         })
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        map = googleMap
-        map.uiSettings.isZoomControlsEnabled = true
-        map.setOnMarkerClickListener(this)
-    }
-
     override fun onMarkerClick(p0: Marker?): Boolean {
+        p0?.id
         val bundle = Bundle()
-        p0?.alpha?.let { bundle.putInt(AppConstants.CINEMA_ID, p0?.alpha.toInt()) }
-
+        p0?.alpha?.let {bundle.putInt(AppConstants.CINEMA_ID, p0?.alpha.toInt())}
         navController.navigate(
             R.id.action_cinemaFragment_to_cinemaDetailsFragment,
             bundle
         )
         return false
     }
+    override fun onMapReady(googleMap: GoogleMap) {
+        map = googleMap
+        map.uiSettings.isZoomControlsEnabled = true
+        map.setOnMarkerClickListener(this)
+    }
+
+
 }

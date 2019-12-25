@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 
 import com.example.kinopoisk.R
 import com.example.kinopoisk.base.BaseFragment
@@ -20,12 +22,13 @@ import org.koin.android.ext.android.inject
  * A simple [Fragment] subclass.
  */
 class ProfileFragment : BaseFragment() {
+
     private val viewModel: ProfileViewModel by inject()
 
     private lateinit var progressBar: ProgressBar
     private lateinit var tvName: TextView
     private lateinit var tvUsername: TextView
-    private lateinit var tvAdult: TextView
+    //private lateinit var profileImg: ImageView
 
 
     override fun onCreateView(
@@ -43,9 +46,9 @@ class ProfileFragment : BaseFragment() {
 
     override fun bindViews(view: View) = with(view){
         progressBar = view.findViewById(R.id.progressBar)
-        tvName = view.findViewById(R.id.tvNameValue)
-        tvUsername = view.findViewById(R.id.tvUsernameValue)
-        tvAdult = view.findViewById(R.id.tvAdultValue)
+        tvName = view.findViewById(R.id.pName)
+        tvUsername = view.findViewById(R.id.pLogin)
+        //profileImg = view!!.findViewById(R.id.ivPoster)
 
     }
 
@@ -66,7 +69,9 @@ class ProfileFragment : BaseFragment() {
                 is ProfileViewModel.State.Result -> {
                     tvName.text = result.account?.name
                     tvUsername.text = result.account?.username
-                    tvAdult.text = result.account?.adult.toString()
+//                    Glide.with(this)
+//                        .load(R.drawable.naruto)
+//                        .into(profileImg)
                 }
                 is ProfileViewModel.State.Error -> {
                     Toast.makeText(context, result.error, Toast.LENGTH_SHORT).show()

@@ -13,6 +13,7 @@ import com.example.kinopoisk.base.BaseViewHolder
 import com.example.kinopoisk.data.models.MovieData
 import com.example.kinopoisk.domain.models.Movie
 import com.example.kinopoisk.utils.AppConstants
+import org.w3c.dom.Text
 
 class MovieAdapter(
     private val itemClickListener: ItemClickListener
@@ -96,16 +97,19 @@ class MovieAdapter(
     inner class MovieViewHolder(view: View): BaseViewHolder(view) {
         private val tvName: TextView
         private val tvDate: TextView
+        private val tvDescription: TextView
         private val ivPoster: ImageView
 
         init {
             tvName = view.findViewById(R.id.tvName)
             tvDate = view.findViewById(R.id.tvDate)
             ivPoster = view.findViewById(R.id.ivPoster)
+            tvDescription = view.findViewById(R.id.tvDescription)
         }
 
         fun bind(movie: MovieData) {
             tvName.text = movie.title
+            tvDescription.text = movie.overview!!.take(70) + "..."
             movie.releaseDate.let{ date ->
                 tvDate.text = date
             }
@@ -135,30 +139,3 @@ class MovieAdapter(
 
 
 
-//inner class MainHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//
-//    private val title = itemView.findViewById<TextView>(R.id.title)
-//    private val overview = itemView.findViewById<TextView>(R.id.overview)
-//    private val vote_average = itemView.findViewById<TextView>(R.id.vote_average)
-//    private val original_language = itemView.findViewById<TextView>(R.id.lang)
-//
-//    //private val poster_path = itemView.findViewById<TextView>(R.id.poster_path)
-//    val poster: ImageView = itemView.findViewById(R.id.poster_path)
-//
-//
-//    fun bind(movie: Movie) {
-//        title.text = movie.title
-//        overview.text = movie.overview
-//        vote_average.text = movie.vote_average.toString()
-//        original_language.text = movie.original_language
-//
-//        val url = "${"http://image.tmdb.org/t/p/w500"}${movie.poster_path}"
-//        Glide.with(itemView.context)
-//            .load(url)
-//            .into(poster)
-//
-//        itemView.setOnClickListener {
-//            if (adapterPosition != RecyclerView.NO_POSITION) callback.onItemClicked(movies.get(adapterPosition))
-//        }
-//    }
-//}

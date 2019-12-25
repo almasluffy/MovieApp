@@ -15,13 +15,14 @@ import com.bumptech.glide.Glide
 import com.example.kinopoisk.R
 import com.example.kinopoisk.base.BaseFragment
 import com.example.kinopoisk.utils.AppConstants
+import org.koin.android.ext.android.inject
 
 /**
  * A simple [Fragment] subclass.
  */
 class CinemaDetail : BaseFragment() {
 
-    private lateinit var viewModel: CinemaDetailViewModel
+    private val viewModel: CinemaDetailViewModel by inject()
 
     private lateinit var ivBackdrop: ImageView
     private lateinit var tvName: TextView
@@ -29,7 +30,6 @@ class CinemaDetail : BaseFragment() {
     private lateinit var tvParking: TextView
     private lateinit var tvContacts: TextView
     private lateinit var tvEntry: TextView
-    private lateinit var tvBuffet: TextView
 
     private var cinemaId: Int? = 0
 
@@ -37,13 +37,11 @@ class CinemaDetail : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cinema_detail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(CinemaDetailViewModel::class.java)
         bindViews(view)
         setData()
     }
@@ -55,7 +53,6 @@ class CinemaDetail : BaseFragment() {
         tvParking = view.findViewById(R.id.tvParking)
         tvContacts = view.findViewById(R.id.tvContacts)
         tvEntry = view.findViewById(R.id.tvEntry)
-        tvBuffet = view.findViewById(R.id.tvBuffet)
     }
 
     override fun setData() {
@@ -73,7 +70,6 @@ class CinemaDetail : BaseFragment() {
             tvParking.text = result.parking
             tvContacts.text = result.phoneNumber
             tvEntry.text = result.entry
-            tvBuffet.text = result.buffet
         })
     }
 

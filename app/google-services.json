@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "829828565159",
+    "firebase_url": "https://kinopoisk-e1d57.firebaseio.com",
+    "project_id": "kinopoisk-e1d57",
+    "storage_bucket": "kinopoisk-e1d57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829828565159:android:acd5c93fad49ad8afe3382",
+        "android_client_info": {
+          "package_name": "com.example.kinopoisk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829828565159-1g0ausn338brnpjpbg0r2h615iiqgcat.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kinopoisk",
+            "certificate_hash": "ce057987a36b6a3fc24720be8cfa1a9bb5186c33"
+          }
+        },
+        {
+          "client_id": "829828565159-desg0fvrskpv0fc9kti6mihri1jdj779.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCrTlQjQ-KAD2pnNccLB4chZEf6F1LBn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829828565159-desg0fvrskpv0fc9kti6mihri1jdj779.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
